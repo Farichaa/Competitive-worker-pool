@@ -1,0 +1,53 @@
+# Конфигурация по умолчанию для пула воркеров
+
+# Основные параметры пула
+min_workers: 2
+max_workers: 10
+enable_metrics: true
+enable_monitoring: true
+log_level: "INFO"
+
+# Конфигурация канала задач
+channel:
+  max_size: 1000
+  priority_queues: true
+  timeout: null
+  enable_metrics: true
+
+# Конфигурация ретраев
+retry:
+  max_retries: 3
+  base_delay: 1.0
+  max_delay: 60.0
+  exponential_base: 2.0
+  jitter: true
+  jitter_factor: 0.1
+  strategy: "exponential"
+  retry_on_exceptions: []
+  stop_on_exceptions: []
+
+# Конфигурация graceful shutdown
+shutdown:
+  timeout: 30.0
+  worker_termination_timeout: 5.0
+  task_completion_timeout: 20.0
+  force_terminate: true
+  wait_for_pending_tasks: true
+  signal_handling: true
+  cleanup_callbacks: []
+
+# Конфигурация выполнения задач
+execution:
+  timeout: null
+  enable_metrics: true
+  capture_exceptions: true
+  log_execution_details: true
+
+# Конфигурация менеджера воркеров
+worker_manager:
+  min_workers: 2
+  max_workers: 10
+  worker_idle_timeout: 60.0
+  worker_startup_delay: 0.1
+  auto_scaling: true
+  scaling_check_interval: 5.0
