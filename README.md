@@ -47,13 +47,10 @@ tests/                      # Тесты
 
 ```bash
 # Клонирование репозитория
-git clone <repository-url>
-cd worker-pool
-
-# Установка зависимостей
+git clone https://github.com/Zik87/Competitive-worker-pool.git
+cd Competitive-worker-pool
+pip install -U pip
 pip install -r requirements.txt
-
-# Установка в режиме разработки
 pip install -e .
 ```
 
@@ -81,6 +78,14 @@ with WorkerPool() as pool:
     metrics = pool.get_metrics()
     print(f"Выполнено задач: {metrics['total_tasks_completed']}")
 ```
+
+### Локальная сборка колеса
+
+```python
+python -m build  # создаст dist/*.whl
+pip install dist/*.whl
+```
+
 
 ### Задачи с ретраями
 
@@ -385,5 +390,6 @@ python examples/advanced_usage.py
 - Мониторинг и метрики
 
 ---
+
 
 **Создано с ❤️ для высокопроизводительных Python приложений**
